@@ -1,5 +1,5 @@
 
-package model;
+package classes;
 
 public class Equipamento {
     private String nome;

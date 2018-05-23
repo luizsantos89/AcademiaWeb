@@ -1,5 +1,5 @@
 
-package model;
+package classes;
 
 public class Funcionario extends Usuario{
     private String dataAdmissao;

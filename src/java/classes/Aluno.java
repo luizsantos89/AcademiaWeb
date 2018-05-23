@@ -1,5 +1,5 @@
 
-package model;
+package classes;
 
 public class Aluno extends Usuario {
     private Funcionario funcionario;
