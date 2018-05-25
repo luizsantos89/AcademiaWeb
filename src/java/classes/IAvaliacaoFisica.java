@@ -10,7 +10,7 @@ package classes;
  *
  * @author alunoces
  */
-public interface IIMC {
+public interface IAvaliacaoFisica {
     public float calcularIMC();
     public String getSexo();
     public float getAltura();

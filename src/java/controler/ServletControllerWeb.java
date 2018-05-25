@@ -12,9 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import classes.IMC;
-import classes.IIMC;
-import classes.CalcularIMC;
+import classes.AvaliacaoFisica;
+import classes.IAvaliacaoFisica;
 
 /**
  *
@@ -31,23 +30,6 @@ public class ServletControllerWeb extends HttpServlet {
         String sexo = request.getParameter("vSexo");                
         float peso = Float.parseFloat(request.getParameter("vPeso"));
         float altura = Float.parseFloat(request.getParameter("vAltura"));
-        
-        if(verificarIMC(request).equals("Abaixo do peso")){
-            mensagem = "Abaixo do peso";
-        }
-        else if(verificarIMC(request).equals("Peso normal")){
-            mensagem = "Peso normal";
-        }
-        else if(verificarIMC(request).equals("Marginalmente acima do peso")){
-            mensagem = "Marginalmente acima do peso";
-        }
-        else if(verificarIMC(request).equals("Acima do peso ideal")){
-            mensagem = "Acima do peso ideal";
-        }
-        else{
-            mensagem = "Obeso";
-        }
-        
         request.setAttribute("mensagem",mensagem);
         
         getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
@@ -63,22 +45,6 @@ public class ServletControllerWeb extends HttpServlet {
         out.close();
     }
     
-    public String verificarIMC(HttpServletRequest request) {
-        
-        String sexo = request.getParameter("vSexo");
-        float peso = Float.parseFloat(request.getParameter("vPeso"));
-        float altura = Float.parseFloat(request.getParameter("vAltura"));
-        
-        IMC objIMC = new IMC();
-        CalcularIMC objCalcularIMC = new CalcularIMC();
-        objCalcularIMC.setAltura(altura);
-        objCalcularIMC.setPeso(peso);
-        objCalcularIMC.setSexo(sexo);
-        
-        String resultado = objIMC.calcularIMC(objCalcularIMC);
-        
-        return resultado;
-    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
