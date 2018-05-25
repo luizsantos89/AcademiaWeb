@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import classes.AvaliacaoFisica;
 import classes.IAvaliacaoFisica;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -22,66 +23,23 @@ import classes.IAvaliacaoFisica;
 @WebServlet(name = "ServletControllerWeb", urlPatterns = {"/ServletControllerWeb"})
 public class ServletControllerWeb extends HttpServlet {
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String mensagem = "";
-        String sexo = request.getParameter("vSexo");                
-        float peso = Float.parseFloat(request.getParameter("vPeso"));
-        float altura = Float.parseFloat(request.getParameter("vAltura"));
-        request.setAttribute("mensagem",mensagem);
-        
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
-        
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Controle</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Se você está vendo está página, aconteceu algum erro</h1>");
-        out.println("</body>");
-        out.println("</html>");
-        out.close();
-    }
-    
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
+        
+        System.out.println(usuario);
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("usuario", usuario);
+        
+        response.sendRedirect("index.jsp");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

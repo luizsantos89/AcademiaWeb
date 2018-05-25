@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <form action="ServletUsuario" method="post">
+        <form action="ServletControllerWeb" method="post">
             <h1>Acesse o sistema:</h1>
             <table>
                 <tr>

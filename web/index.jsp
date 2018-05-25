@@ -14,6 +14,14 @@
         <title>Operações :: Aplicação Teste Easymock</title>
     </head>
     <body>
-        <h3>Bem vindo usuario</h3>
+        <%
+            String usuario = null;
+            if (session.getAttribute("usuario") == null){
+                usuario = "Ocorreu um erro";
+            } else { 
+                usuario = "Olá "+(String) session.getAttribute("usuario")+", você logou com êxito";
+            }
+        %>
+        <h3><%=usuario %></h3>
     </body>
 </html>
