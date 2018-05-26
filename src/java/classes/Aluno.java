@@ -1,12 +1,55 @@
 
 package classes;
 
+import java.util.ArrayList;
+
 public class Aluno extends Usuario {
     private Funcionario funcionario;
+    private int codigo;
+    private String nome;
+    private String cpf;
+    private String dataNascimento;
     private String dataCadastro;
     private String objetivo;
     private String sexo;
+    
+    public int getCodigo() {
+        return codigo;
+    }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String getCpf() {
+        return cpf;
+    }
+
+    @Override
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    @Override
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+    
     public Funcionario getFuncionario() {
         return funcionario;
     }
@@ -39,5 +82,68 @@ public class Aluno extends Usuario {
         this.sexo = sexo;
     }
     
-    
+    public static Mensagens msg = new Mensagens();
+			
+		ArrayList<Aluno> arrayAlunos = new ArrayList<Aluno>();//Incluir, alterar, excluir
+		
+	public void cadastrarAluno(int codigo, String nome, String cpf, String dataNascimento, String dataCadastro, String objetivo, String sexo){
+		Aluno adiciona = new Aluno();		
+		adiciona.codigo=codigo;
+		adiciona.nome=nome;
+		adiciona.cpf=cpf;
+		adiciona.dataNascimento=dataNascimento;
+		adiciona.dataCadastro=dataCadastro;
+                adiciona.objetivo=objetivo;
+                adiciona.sexo=sexo;
+		
+		int cont=0;
+		//verifica se é a primeira inclusão no array, se for, inclui direto.
+		if(arrayAlunos.size()==0){
+			arrayAlunos.add(adiciona);
+			msg.mensagemPopUp("Aluno "+adiciona.nome+" cadastrado com sucesso!");
+		}else{
+			//se não for a primeira testa se o código já existe, se não existe cont=1 e no final se cont==1 ele adiciona
+			for (Aluno arrayAlu : arrayAlunos) {
+				if(arrayAlu.codigo==codigo){
+					msg.mensagemPopUp("O Código já existe!");
+				}else{
+					cont=1;
+				}
+			}
+			if(cont==1){
+				arrayAlunos.add(adiciona);
+				msg.mensagemPopUp("Aluno "+adiciona.nome+" cadastrado com sucesso!");	
+			}
+		}
+	}
+	
+
+	public void editarAluno(int alunoEditar, int cAluno, String nomeAluno, String cpfAluno, String dataNascimentoAluno, String dataCadastroAluno, String objetivoAluno, String sexoAluno){	
+		for (Aluno arrayAlu : arrayAlunos) {
+			if(arrayAlu.codigo==alunoEditar){
+				arrayAlu.codigo=cAluno;
+				arrayAlu.nome=nomeAluno;
+				arrayAlu.cpf=cpfAluno;
+				arrayAlu.dataNascimento=dataNascimentoAluno;
+                                arrayAlu.dataCadastro=dataCadastroAluno;
+                                arrayAlu.objetivo=objetivoAluno;
+                                arrayAlu.sexo=sexoAluno;
+			}
+		}
+		
+	}
+	
+        public void excluirAluno(int excluirAlu){
+		for (Aluno arrayAlu : arrayAlunos) {
+			if(arrayAlu.codigo==excluirAlu){
+				arrayAlunos.remove(arrayAlu);
+				msg.mensagemPopUp("Removido");
+			return;
+			}
+		}
+			msg.mensagemPopUp("O Código não existe!");
+	}	
 }
+    
+    
+
