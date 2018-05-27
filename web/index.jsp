@@ -17,7 +17,7 @@
         <%
             String usuario = null;
             if (session.getAttribute("usuario") == null){
-                usuario = "Ocorreu um erro";
+                response.sendRedirect("login.jsp");
             } else { 
                 usuario = "Olá "+(String) session.getAttribute("usuario")+", você logou com êxito";
             }
