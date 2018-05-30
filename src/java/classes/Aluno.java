@@ -3,8 +3,7 @@ package classes;
 
 import java.util.ArrayList;
 
-public class Aluno extends Usuario {
-    private Funcionario funcionario;
+public class Aluno extends Usuario{
     private int codigo;
     private String nome;
     private String cpf;
@@ -21,27 +20,22 @@ public class Aluno extends Usuario {
         this.codigo = codigo;
     }
 
-    @Override
     public String getNome() {
         return nome;
     }
 
-    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    @Override
     public String getCpf() {
         return cpf;
     }
 
-    @Override
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    @Override
     public String getDataNascimento() {
         return dataNascimento;
     }
@@ -50,14 +44,6 @@ public class Aluno extends Usuario {
         this.dataNascimento = dataNascimento;
     }
     
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
     public String getDataCadastro() {
         return dataCadastro;
     }

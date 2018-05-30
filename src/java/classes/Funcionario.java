@@ -40,7 +40,7 @@ public class Funcionario extends Usuario{
 			
 		ArrayList<Funcionario> arrayFuncionarios = new ArrayList<Funcionario>();
 		
-	public void cadastrarAluno(int codigo, String nome, String cpf, String sexo, String dataAdmissao, double salario, String funcao){	//nome, cpf, telefone, email
+	public void cadastrarFuncionario(int codigo, String nome, String cpf, String sexo, String dataAdmissao, double salario, String funcao){
 		Funcionario adiciona = new Funcionario();		
 		adiciona.codigo=codigo;
 		adiciona.nome=nome;

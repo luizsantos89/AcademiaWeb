@@ -4,21 +4,12 @@ package classes;
 import java.util.ArrayList;
 
 public class Endereco {
-    private Usuario usuario;
     public String rua;
     public int numero;
     public String complemento;
     public String bairro;
     public String cidade;
     public String uf;
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 
     public String getRua() {
         return rua;
@@ -105,5 +96,7 @@ public class Endereco {
                     arrayEnd.uf=endUf;
                 }
 	}
+        
+        
 	    
 }
