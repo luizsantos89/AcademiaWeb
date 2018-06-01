@@ -1,15 +1,5 @@
 package classes;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author alunoces
- */
 public class AvaliacaoFisica{
     private Aluno aluno;
     private Funcionario funcionario;
@@ -61,7 +51,6 @@ public class AvaliacaoFisica{
         float imc;
         String sexo = pImc.getSexo();
         String resultado = null;
-        //imc = (IMC.getPeso()/(IMC.getAltura()*IMC.getAltura()));
         this.setImc(pImc.calcularIMC());
         
         if(sexo.equals("M")){ //1

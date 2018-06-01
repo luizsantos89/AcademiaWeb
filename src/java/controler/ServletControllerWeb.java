@@ -34,8 +34,6 @@ public class ServletControllerWeb extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
         
-        System.out.println(usuario);
-        
         HttpSession session = request.getSession();
         session.setAttribute("usuario", usuario);
         

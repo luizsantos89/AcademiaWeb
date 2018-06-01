@@ -1,10 +1,6 @@
 
 package classes;
 
-import java.util.ArrayList;
-import static java.util.Collections.list;
-import java.util.Date;
-
 public class Ficha {
     private Aluno aluno;
     private Funcionario funcionario;
