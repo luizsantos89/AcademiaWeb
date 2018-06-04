@@ -120,6 +120,5 @@ public class AvaliacaoFisica{
 
         return resultado;
     }
- 
-     
+    
 }

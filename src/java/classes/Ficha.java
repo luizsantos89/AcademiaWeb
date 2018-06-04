@@ -5,6 +5,24 @@ public class Ficha {
     private Aluno aluno;
     private Funcionario funcionario;
     private Atividade atividade;
+    private int serie;
+    private int repeticao;
+
+    public int getSerie() {
+        return serie;
+    }
+
+    public void setSerie(int serie) {
+        this.serie = serie;
+    }
+
+    public int getRepeticao() {
+        return repeticao;
+    }
+
+    public void setRepeticao(int repeticao) {
+        this.repeticao = repeticao;
+    }
     
     public Aluno getAluno() {
         return aluno;
@@ -28,5 +46,47 @@ public class Ficha {
 
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
+    }
+    
+    public int calcularSerie() {
+        AvaliacaoFisica af = new AvaliacaoFisica();
+        Aluno aluno = new Aluno();
+        
+        af.setAluno(aluno);
+        this.aluno = aluno;
+        
+        if(af.calcularIMCJunit().equals("Abaixo do peso")) {
+            this.setSerie(3);
+        } else if (af.calcularIMCJunit().equals("Normal")) {
+            this.setSerie(4);
+        } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
+            this.setSerie(3);
+        } else if (af.calcularIMCJunit().equals("Acima do peso")) {
+            this.setSerie(2);
+        } else if (af.calcularIMCJunit().equals("Obeso")) {
+            this.setSerie(2);
+        }
+        return serie;
+    }
+    
+    public int calcularRepeticao() {
+        AvaliacaoFisica af = new AvaliacaoFisica();
+        Aluno aluno = new Aluno();
+        
+        af.setAluno(aluno);
+        this.aluno = aluno;
+        
+        if(af.calcularIMCJunit().equals("Abaixo do peso")) {
+            this.setRepeticao(15);
+        } else if (af.calcularIMCJunit().equals("Normal")) {
+            this.setRepeticao(15);
+        } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
+            this.setRepeticao(10);
+        } else if (af.calcularIMCJunit().equals("Acima do peso")) {
+            this.setRepeticao(15);
+        } else if (af.calcularIMCJunit().equals("Obeso")) {
+            this.setRepeticao(10);
+        }
+        return repeticao;
     }
 }

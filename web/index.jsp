@@ -1,27 +1,43 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-<c:if test="${mensagem==null}">
-    <c:set var="mensagem" value="N√£o Aplicavel." />   
-</c:if>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Opera√ß√µes :: Aplica√ß√£o Teste Easymock</title>
-    </head>
-    <body>
+    <title>P·gina Principal</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">        
+        
         <%
             String usuario = null;
             if (session.getAttribute("usuario") == null){
                 response.sendRedirect("login.jsp");
             } else { 
-                usuario = "Ol√° "+(String) session.getAttribute("usuario")+", voc√™ logou com √™xito";
+                usuario = "Ol· <b>"+(String) session.getAttribute("usuario")+"</b>, vocÍ logou com Íxito";
             }
         %>
-        <h3><%=usuario %></h3>
-    </body>
+        
+        <img class="mb-4" src="imagens/logo2.png">
+        <h1 class="mt-5"><%=usuario %></h1>
+        <p class="lead">Em construÁ„o</p>
+        
+        <form action="ServletControllerWeb" method="get">
+            <button type="submit">Sair</button>
+        </form>
+    </main>
+
+  </body>
 </html>
