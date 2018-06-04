@@ -32,7 +32,7 @@ public class TestRepeticao extends TestCase {
     public void testMascNormal() {
         aluno.setSexo("masculino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(26.3f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
         assertEquals(20, ficha.calcularRepeticao(aluno,af));
@@ -41,16 +41,16 @@ public class TestRepeticao extends TestCase {
     public void testMascMarginAcima() {
         aluno.setSexo("masculino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(27.7f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
-        assertEquals(20, ficha.calcularRepeticao(aluno,af));
+        assertEquals(15, ficha.calcularRepeticao(aluno,af));
     }
     
     public void testMascAcimaPeso() {
         aluno.setSexo("masculino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(31f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
         assertEquals(20, ficha.calcularRepeticao(aluno,af));
@@ -59,10 +59,10 @@ public class TestRepeticao extends TestCase {
     public void testMascObeso() {
         aluno.setSexo("masculino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(31.1f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
-        assertEquals(20, ficha.calcularRepeticao(aluno,af));
+        assertEquals(15, ficha.calcularRepeticao(aluno,af));
     }
     
     public void testFemAbaixoPeso() {
@@ -77,28 +77,28 @@ public class TestRepeticao extends TestCase {
     public void testFemNormal() {
         aluno.setSexo("feminino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(19f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
-        assertEquals(0, ficha.calcularRepeticao(aluno,af));
+        assertEquals(15, ficha.calcularRepeticao(aluno,af));
     }
     
     public void testFemMarginAcima() {
         aluno.setSexo("feminino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(25.7f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
-        assertEquals(0, ficha.calcularRepeticao(aluno,af));
+        assertEquals(15, ficha.calcularRepeticao(aluno,af));
     }
     
     public void testFemAcimaPeso() {
         aluno.setSexo("feminino");
         af.setAluno(aluno);
-        af.setPeso(20.6f);
+        af.setPeso(27.2f);
         af.setAltura(1f); 
         af.calcularIMCJunit();
-        assertEquals(0, ficha.calcularRepeticao(aluno,af));
+        assertEquals(10, ficha.calcularRepeticao(aluno,af));
     }
     
     public void testFemObeso() {

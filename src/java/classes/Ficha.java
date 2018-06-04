@@ -87,7 +87,7 @@ public class Ficha {
         if(aluno.getSexo().equals("masculino")) {
             if(af.calcularIMCJunit().equals("Abaixo do peso")) {
                 this.setRepeticao(20);
-            } else if (af.calcularIMCJunit().equals("Normal")) {
+            } else if (af.calcularIMCJunit().equals("Peso normal")) {
                 this.setRepeticao(20);
             } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
                 this.setRepeticao(15);
@@ -99,7 +99,7 @@ public class Ficha {
         } else {
             if(af.calcularIMCJunit().equals("Abaixo do peso")) {
                 this.setRepeticao(15);
-            } else if (af.calcularIMCJunit().equals("Normal")) {
+            } else if (af.calcularIMCJunit().equals("Peso normal")) {
                 this.setRepeticao(15);
             } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
                 this.setRepeticao(10);
