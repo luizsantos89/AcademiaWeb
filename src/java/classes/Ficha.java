@@ -55,16 +55,30 @@ public class Ficha {
         af.setAluno(aluno);
         this.aluno = aluno;
         
-        if(af.calcularIMCJunit().equals("Abaixo do peso")) {
-            this.setSerie(3);
-        } else if (af.calcularIMCJunit().equals("Normal")) {
-            this.setSerie(4);
-        } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
-            this.setSerie(3);
-        } else if (af.calcularIMCJunit().equals("Acima do peso")) {
-            this.setSerie(2);
-        } else if (af.calcularIMCJunit().equals("Obeso")) {
-            this.setSerie(2);
+        if(aluno.getSexo().equals("masculino")){
+            if(af.calcularIMCJunit().equals("Abaixo do peso")) {
+                this.setSerie(4);
+            } else if (af.calcularIMCJunit().equals("Normal")) {
+                this.setSerie(5);
+            } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
+                this.setSerie(4);
+            } else if (af.calcularIMCJunit().equals("Acima do peso")) {
+                this.setSerie(3);
+            } else if (af.calcularIMCJunit().equals("Obeso")) {
+                this.setSerie(2);
+            }
+        } else {
+            if(af.calcularIMCJunit().equals("Abaixo do peso")) {
+                this.setSerie(3);
+            } else if (af.calcularIMCJunit().equals("Normal")) {
+                this.setSerie(4);
+            } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
+                this.setSerie(3);
+            } else if (af.calcularIMCJunit().equals("Acima do peso")) {
+                this.setSerie(2);
+            } else if (af.calcularIMCJunit().equals("Obeso")) {
+                this.setSerie(2);
+            }
         }
         return serie;
     }
@@ -76,16 +90,30 @@ public class Ficha {
         af.setAluno(aluno);
         this.aluno = aluno;
         
-        if(af.calcularIMCJunit().equals("Abaixo do peso")) {
-            this.setRepeticao(15);
-        } else if (af.calcularIMCJunit().equals("Normal")) {
-            this.setRepeticao(15);
-        } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
-            this.setRepeticao(10);
-        } else if (af.calcularIMCJunit().equals("Acima do peso")) {
-            this.setRepeticao(15);
-        } else if (af.calcularIMCJunit().equals("Obeso")) {
-            this.setRepeticao(10);
+        if(aluno.getSexo().equals("masculino")) {
+            if(af.calcularIMCJunit().equals("Abaixo do peso")) {
+                this.setRepeticao(20);
+            } else if (af.calcularIMCJunit().equals("Normal")) {
+                this.setRepeticao(20);
+            } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
+                this.setRepeticao(15);
+            } else if (af.calcularIMCJunit().equals("Acima do peso")) {
+                this.setRepeticao(20);
+            } else if (af.calcularIMCJunit().equals("Obeso")) {
+                this.setRepeticao(15);
+            }
+        } else {
+            if(af.calcularIMCJunit().equals("Abaixo do peso")) {
+                this.setRepeticao(15);
+            } else if (af.calcularIMCJunit().equals("Normal")) {
+                this.setRepeticao(15);
+            } else if (af.calcularIMCJunit().equals("Marginalmente acima do peso")) {
+                this.setRepeticao(10);
+            } else if (af.calcularIMCJunit().equals("Acima do peso")) {
+                this.setRepeticao(15);
+            } else if (af.calcularIMCJunit().equals("Obeso")) {
+                this.setRepeticao(10);
+            }
         }
         return repeticao;
     }
