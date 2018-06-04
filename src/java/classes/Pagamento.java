@@ -1,6 +1,8 @@
 
 package classes;
 
+
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.util.Date;
 
 public class Pagamento {
@@ -39,5 +41,12 @@ public class Pagamento {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+    
+    public void registraPagamento(Funcionario funcionario, Aluno aluno, Double valor) {
+        this.setAluno(aluno);
+        this.setFuncionario(funcionario);
+        this.setData((Date) date());
+        this.setValor(valor);
     }
 }

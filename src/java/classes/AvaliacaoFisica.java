@@ -53,7 +53,7 @@ public class AvaliacaoFisica{
         String resultado = null;
         this.setImc(pImc.calcularIMC());
         
-        if(sexo.equals("M")){ //1
+        if(sexo.equals("masculino")){ //1
             if(this.getImc() < 20.7f){ //2
             resultado = ("Abaixo do peso"); //3
             }
@@ -121,4 +121,23 @@ public class AvaliacaoFisica{
         return resultado;
     }
     
+    public void cadastrarAvaliacaoFisica(Aluno aluno, Funcionario funcionario, float peso, float altura) {
+        this.setAluno(aluno);
+        this.setFuncionario(funcionario);
+        this.setAltura(altura);
+        this.setPeso(peso);
+        this.setImc(peso/(altura*altura));
+    }
+    
+    public void editarAvaliacaoFisica(Aluno aluno, Funcionario funcionario, float peso, float altura) {
+        this.setAluno(aluno);
+        this.setFuncionario(funcionario);
+        this.setAltura(altura);
+        this.setPeso(peso);
+        this.setImc(peso/(altura*altura));
+    }
+    
+    public void excluirAvaliacaoFisica() {
+        
+    }
 }

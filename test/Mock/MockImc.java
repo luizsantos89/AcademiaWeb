@@ -33,7 +33,7 @@ public class MockImc extends TestCase{
         expect(mock.getSexo()).andReturn("masculino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
-        assertEquals("Normal", af.calcularIMC(mock));
+        assertEquals("Peso normal", af.calcularIMC(mock));
     }
     
     public void testIMCMasculinoMarginalmenteAcimaMock(){
@@ -51,7 +51,7 @@ public class MockImc extends TestCase{
         expect(mock.getSexo()).andReturn("masculino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
-        assertEquals("Acima do peso", af.calcularIMC(mock));
+        assertEquals("Acima do peso ideal", af.calcularIMC(mock));
     }
     
     public void testIMCMasculinoObesoMock(){
@@ -65,8 +65,8 @@ public class MockImc extends TestCase{
     
     public void testIMCFemininoAbaixoPesoMock(){
         IAvaliacaoFisica mock = createMock(IAvaliacaoFisica.class);        
-        expect(mock.calcularIMC()).andReturn(18.6f);
-        expect(mock.getSexo()).andReturn("masculino");
+        expect(mock.calcularIMC()).andReturn(19f);
+        expect(mock.getSexo()).andReturn("feminino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
         assertEquals("Abaixo do peso", af.calcularIMC(mock));
@@ -74,37 +74,37 @@ public class MockImc extends TestCase{
     
     public void testIMCFemininoPesoNormalMock(){
         IAvaliacaoFisica mock = createMock(IAvaliacaoFisica.class);        
-        expect(mock.calcularIMC()).andReturn(18.6f);
-        expect(mock.getSexo()).andReturn("masculino");
+        expect(mock.calcularIMC()).andReturn(25.7f);
+        expect(mock.getSexo()).andReturn("feminino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
-        assertEquals("Abaixo do peso", af.calcularIMC(mock));
+        assertEquals("Peso normal", af.calcularIMC(mock));
     }
     
     public void testIMCFemininoMarginalmenteAcimaMock(){
         IAvaliacaoFisica mock = createMock(IAvaliacaoFisica.class);        
-        expect(mock.calcularIMC()).andReturn(18.6f);
-        expect(mock.getSexo()).andReturn("masculino");
+        expect(mock.calcularIMC()).andReturn(27.2f);
+        expect(mock.getSexo()).andReturn("feminino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
-        assertEquals("Abaixo do peso", af.calcularIMC(mock));
+        assertEquals("Marginalmente acima do peso", af.calcularIMC(mock));
     }
     
     public void testIMCFemininoAcimaPesoMock(){
         IAvaliacaoFisica mock = createMock(IAvaliacaoFisica.class);        
-        expect(mock.calcularIMC()).andReturn(18.6f);
-        expect(mock.getSexo()).andReturn("masculino");
+        expect(mock.calcularIMC()).andReturn(32.2f);
+        expect(mock.getSexo()).andReturn("feminino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
-        assertEquals("Abaixo do peso", af.calcularIMC(mock));
+        assertEquals("Acima do peso ideal", af.calcularIMC(mock));
     }
     
     public void testIMCFemininoObesoMock(){
         IAvaliacaoFisica mock = createMock(IAvaliacaoFisica.class);        
-        expect(mock.calcularIMC()).andReturn(18.6f);
-        expect(mock.getSexo()).andReturn("masculino");
+        expect(mock.calcularIMC()).andReturn(32.3f);
+        expect(mock.getSexo()).andReturn("feminino");
         replay(mock);        
         AvaliacaoFisica af = new AvaliacaoFisica();
-        assertEquals("Abaixo do peso", af.calcularIMC(mock));
+        assertEquals("Obeso", af.calcularIMC(mock));
     }
 }

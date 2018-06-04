@@ -48,10 +48,7 @@ public class Ficha {
         this.atividade = atividade;
     }
     
-    public int calcularSerie() {
-        AvaliacaoFisica af = new AvaliacaoFisica();
-        Aluno aluno = new Aluno();
-        
+    public int calcularSerie(Aluno aluno, AvaliacaoFisica af) {        
         af.setAluno(aluno);
         this.aluno = aluno;
         
@@ -67,7 +64,7 @@ public class Ficha {
             } else if (af.calcularIMCJunit().equals("Obeso")) {
                 this.setSerie(2);
             }
-        } else {
+        } else if(aluno.getSexo().equals("feminino")) {
             if(af.calcularIMCJunit().equals("Abaixo do peso")) {
                 this.setSerie(3);
             } else if (af.calcularIMCJunit().equals("Normal")) {
@@ -83,10 +80,7 @@ public class Ficha {
         return serie;
     }
     
-    public int calcularRepeticao() {
-        AvaliacaoFisica af = new AvaliacaoFisica();
-        Aluno aluno = new Aluno();
-        
+    public int calcularRepeticao(Aluno aluno, AvaliacaoFisica af) {        
         af.setAluno(aluno);
         this.aluno = aluno;
         
@@ -116,5 +110,25 @@ public class Ficha {
             }
         }
         return repeticao;
+    }
+    
+    public void cadastrarFicha(Aluno aluno, Funcionario funcionario, Atividade atividade, int serie, int repeticao) {
+        this.setAluno(aluno);
+        this.setFuncionario(funcionario);
+        this.setAluno(aluno);
+        this.setSerie(this.calcularSerie());
+        this.setRepeticao(this.calcularRepeticao());
+    }
+    
+    public void editarFicha(Aluno aluno, Funcionario funcionario, Atividade atividade, int serie, int repeticao) {
+        this.setAluno(aluno);
+        this.setFuncionario(funcionario);
+        this.setAluno(aluno);
+        this.setSerie(this.calcularSerie());
+        this.setRepeticao(this.calcularRepeticao());
+    }
+    
+    public void excluirFicha() {
+        
     }
 }
